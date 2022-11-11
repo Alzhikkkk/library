@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/signInFragment">
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.newfinal.SignInFragment"
+        android:label="sign_in"
+        tools:layout="@layout/sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_sign_Up2"
+            app:destination="@id/sign_Up2" />
+        <action
+            android:id="@+id/action_signInFragment_to_options_fragment2"
+            app:destination="@id/options_fragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sign_Up2"
+        android:name="com.example.newfinal.Sign_Up"
+        android:label="activity_sign_up"
+        tools:layout="@layout/activity_sign_up" >
+        <action
+            android:id="@+id/action_sign_Up2_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/options_fragment2"
+        android:name="com.example.newfinal.Options_fragment"
+        android:label="options_genre"
+        tools:layout="@layout/options_genre" >
+        <action
+            android:id="@+id/action_options_fragment2_to_personal_fragment"
+            app:destination="@id/personal_fragment" />
+        <action
+            android:id="@+id/action_options_fragment2_to_books_Fragment"
+            app:destination="@id/books_Fragment" />
+        <action
+            android:id="@+id/action_options_fragment2_to_recycle_fragment"
+            app:destination="@id/recycle_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personal_fragment"
+        android:name="com.example.newfinal.Personal_fragment"
+        android:label="main_book"
+        tools:layout="@layout/main_book" />
+    <fragment
+        android:id="@+id/books_Fragment"
+        android:name="com.example.newfinal.Books_Fragment"
+        android:label="cards_element"
+        tools:layout="@layout/cards_element" >
+        <action
+            android:id="@+id/action_books_Fragment_to_pageFragment"
+            app:destination="@id/pageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageFragment"
+        android:name="com.example.newfinal.PageFragments"
+        android:label="page_of_book"
+        tools:layout="@layout/page_of_book" />
+    <fragment
+        android:id="@+id/recycle_fragment"
+        android:name="com.example.newfinal.Recycle_fragment"
+        android:label="Recycle_fragment" >
+        <action
+            android:id="@+id/action_recycle_fragment_to_pageFragment"
+            app:destination="@id/pageFragment" />
+    </fragment>
+</navigation>

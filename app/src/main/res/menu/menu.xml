@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_pic"
+        android:icon="@drawable/ic_baseline_edit_25"
+        android:title="Pic"
+        app:showAsAction="ifRoom"/>
+
+
+
+    <item
+        android:id="@+id/r_button"
+        android:title="Read"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/dialog_button"
+        android:title="Done"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/fav_button"
+        android:title="Favourite"
+        app:showAsAction="never"/>
+</menu>

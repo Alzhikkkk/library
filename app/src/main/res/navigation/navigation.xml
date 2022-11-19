@@ -5,7 +5,7 @@
     app:startDestination="@id/signInFragment">
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.newfinal.SignInFragment"
+        android:name="com.example.newfinal.views.SignInFragment"
         android:label="sign_in"
         tools:layout="@layout/sign_in" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_Up2"
-        android:name="com.example.newfinal.Sign_Up"
+        android:name="com.example.newfinal.views.Sign_Up"
         android:label="activity_sign_up"
         tools:layout="@layout/activity_sign_up" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/options_fragment2"
-        android:name="com.example.newfinal.Options_fragment"
+        android:name="com.example.newfinal.views.Options_fragment"
         android:label="options_genre"
         tools:layout="@layout/options_genre" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/personal_fragment"
-        android:name="com.example.newfinal.Personal_fragment"
+        android:name="com.example.newfinal.views.Personal_fragment"
         android:label="main_book"
         tools:layout="@layout/main_book" />
     <fragment
@@ -55,12 +55,12 @@
     </fragment>
     <fragment
         android:id="@+id/pageFragment"
-        android:name="com.example.newfinal.PageFragments"
+        android:name="com.example.newfinal.views.PageFragments"
         android:label="page_of_book"
         tools:layout="@layout/page_of_book" />
     <fragment
         android:id="@+id/recycle_fragment"
-        android:name="com.example.newfinal.Recycle_fragment"
+        android:name="com.example.newfinal.views.Recycle_fragment"
         android:label="Recycle_fragment" >
         <action
             android:id="@+id/action_recycle_fragment_to_pageFragment"

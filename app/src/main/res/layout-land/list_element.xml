@@ -10,20 +10,10 @@
     app:cardUseCompatPadding="true"
     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:orientation="vertical"
-        >
-
-    </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/select_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:padding="6dp">
 
         <ImageView

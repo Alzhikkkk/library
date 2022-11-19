@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/photo_5411491607519282575_y"
-    tools:context="com.example.newfinal.SignInFragment">
+    tools:context="com.example.newfinal.views.SignInFragment">
 
 
     <TextView

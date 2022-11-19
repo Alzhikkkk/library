@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/photo_5411491607519282575_y"
-    tools:context="com.example.newfinal.SignInFragment">
+    tools:context="com.example.newfinal.views.SignInFragment">
 
 
     <TextView
@@ -40,12 +40,14 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:hint="Email or phone number"
+            android:id="@+id/email_phone"
             android:inputType="text"
             android:padding="15dp"
             android:textColorHint="@color/black"
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

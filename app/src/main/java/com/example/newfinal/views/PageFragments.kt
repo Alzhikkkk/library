@@ -1,10 +1,9 @@
-package com.example.newfinal
+package com.example.newfinal.views
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.example.newfinal.databinding.PageOfBookBinding
+import com.example.newfinal.R
 
 class PageFragments : Fragment(R.layout.page_of_book) {
 

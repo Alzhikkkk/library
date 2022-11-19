@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.newfinal.viewmodel.MainViewModel
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var vm: MainViewModel
@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
         Log.e("aaa", "smth")
         vm = ViewModelProvider(this).get(MainViewModel::class.java)
+
+
     }
 
 

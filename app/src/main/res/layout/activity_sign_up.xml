@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/photo_5411491607519282574_y"
-    tools:context="com.example.newfinal.Sign_Up"
+    tools:context="com.example.newfinal.views.Sign_Up"
     >
 
     <TextView
@@ -29,19 +29,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="bottom">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:padding="15dp"
-            android:textColorHint="@color/white"
-            android:layout_marginStart="30dp"
-            android:textColor="@android:color/white"
-            android:layout_marginEnd="30dp"
-            android:layout_margin="10dp"
-            android:textStyle="bold"
-            android:backgroundTint="@android:color/transparent"
-            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,6 +39,7 @@
             android:background="@android:color/white"/>
 
         <EditText
+            android:id="@+id/emailSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -74,6 +62,7 @@
             android:background="@android:color/white"/>
 
         <EditText
+            android:id="@+id/passSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -84,7 +73,7 @@
             android:layout_margin="10dp"
             android:textStyle="bold"
             android:backgroundTint="@android:color/transparent"
-            />
+             />
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/photo_5391288235977719248_y"
-    tools:context="com.example.newfinal.Options_fragment">
+    tools:context="com.example.newfinal.views.Options_fragment">
 
 
     <ImageView

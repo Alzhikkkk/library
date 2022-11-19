@@ -8,7 +8,7 @@
     android:id="@+id/TextView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.newfinal.Recycle_fragment">
+    tools:context="com.example.newfinal.views.Recycle_fragment">
 
 
     <TextView

@@ -1,13 +1,10 @@
-package com.example.newfinal
+package com.example.newfinal.views
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.newfinal.R
 import com.example.newfinal.databinding.OptionsGenreBinding
 
 class Options_fragment : Fragment(R.layout.options_genre)  {

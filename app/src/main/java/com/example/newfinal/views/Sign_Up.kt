@@ -26,7 +26,7 @@ class Sign_Up : Fragment(R.layout.activity_sign_up){
         viewModel.userData.observe(this, Observer<FirebaseUser>(){
                 newName ->
             if(newName != null){
-                navController.navigate(R.id.action_signInFragment_to_options_fragment2)
+                navController.navigate(R.id.action_sign_Up2_to_signInFragment)
             }
         })
     }

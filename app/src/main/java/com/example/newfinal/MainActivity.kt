@@ -8,17 +8,11 @@ import com.example.newfinal.viewmodel.MainViewModel
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var vm: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         Log.e("aaa", "smth")
-        vm = ViewModelProvider(this).get(MainViewModel::class.java)
-
 
     }
-
-
-
 }

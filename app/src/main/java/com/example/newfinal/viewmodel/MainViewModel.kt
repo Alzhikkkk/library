@@ -1,15 +1,21 @@
 package com.example.newfinal.viewmodel
 
-import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.newfinal.model.Books
+import com.example.newfinal.repository.Repository
+import kotlinx.coroutines.launch
+import retrofit2.Response
 
-class MainViewModel : ViewModel() {
-    init {
-        Log.e("aaa","smth")
-    }
+class MainViewModel(private val repository: Repository) : ViewModel() {
 
-    override fun onCleared(){
-        Log.e("aaa","smth")
-        super.onCleared()
+    val myResponse: MutableLiveData<Response<Books>> = MutableLiveData()
+
+    fun getBooks(title: String, filter:String, apiKey: String) {
+        viewModelScope.launch {
+            val response: Response<Books> = repository.getBooks(title, filter, apiKey)
+            myResponse.value = response
+        }
     }
 }

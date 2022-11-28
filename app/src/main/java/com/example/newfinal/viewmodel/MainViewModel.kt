@@ -10,11 +10,11 @@ import retrofit2.Response
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
 
-    val myResponse: MutableLiveData<Response<Books>> = MutableLiveData()
+    val myResponse: MutableLiveData<Books> = MutableLiveData()
 
     fun getBooks(title: String, filter:String, apiKey: String) {
         viewModelScope.launch {
-            val response: Response<Books> = repository.getBooks(title, filter, apiKey)
+            val response: Books = repository.getBooks(title, filter, apiKey)
             myResponse.value = response
         }
     }

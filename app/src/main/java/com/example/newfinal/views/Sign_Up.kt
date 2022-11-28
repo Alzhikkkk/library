@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.newfinal.R
 import com.example.newfinal.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseUser
@@ -17,7 +18,6 @@ class Sign_Up : Fragment(R.layout.activity_sign_up){
 
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var viewModel: AuthenViewModel
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class Sign_Up : Fragment(R.layout.activity_sign_up){
         viewModel.userData.observe(this, Observer<FirebaseUser>(){
                 newName ->
             if(newName != null){
-                navController.navigate(R.id.action_sign_Up2_to_signInFragment)
+                findNavController().navigate(R.id.action_sign_Up2_to_signInFragment)
             }
         })
     }
@@ -35,7 +35,6 @@ class Sign_Up : Fragment(R.layout.activity_sign_up){
         super.onViewCreated(view, savedInstanceState)
 
         binding = ActivitySignUpBinding.bind(view)
-        navController = Navigation.findNavController(view)
         Log.e("aaa", "smth")
 
 

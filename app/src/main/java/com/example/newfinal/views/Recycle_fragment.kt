@@ -31,30 +31,31 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         init()
 
-        binding.poka4to.setOnClickListener{
+        binding.poka4to.setOnClickListener {
             findNavController().navigate(R.id.action_recycle_fragment_to_pageFragment)
         }
 
         viewModel.getBooks("flowers", "partial", "")
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
-            if (response.isSuccessful) {
-                Log.e("success", response.body().toString())
-                response.body()!!.items.forEach {
-                    val el: ListElement = ListElement(it.volumeInfo!!.imageLinks!!.smallThumbnail.toString(), it.volumeInfo!!.title.toString(), it.volumeInfo!!.authors[0].toString(), "Favorite")
-                    elements.add(el);
-                }
-            }else{
-                Log.e("Failed", Constant.BASE_URL.toString())
+            response.items.forEach {
+                val el: ListElement =
+                    ListElement(it.volumeInfo!!.imageLinks!!.smallThumbnail.toString(),
+                        it.volumeInfo!!.title.toString(),
+                        it.volumeInfo!!.authors[0].toString(),
+                        "Favorite")
+                elements.add(el);
+                binding.listRecyclerView.adapter?.notifyDataSetChanged()
             }
         })
     }
 
-    fun next(){
+    fun next() {
         lateinit var binding: ListElementBinding
-        binding.selectBook.setOnClickListener{
+        binding.selectBook.setOnClickListener {
             findNavController().navigate(R.id.action_recycle_fragment_to_pageFragment)
         }
     }
+
     fun init(): Unit {
         elements = ArrayList<ListElement>();
 
@@ -64,8 +65,6 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.adapter = listAdapter
     }
-
-
 
 
 }

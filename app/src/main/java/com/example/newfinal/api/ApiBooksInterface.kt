@@ -12,5 +12,5 @@ interface ApiBooksInterface {
             @Query("q") inTitle: String,
             @Query("filter") filter: String,
             @Query("key") apiKey: String
-        ): Response<Books>
+        ): Books
 }

@@ -42,10 +42,12 @@ class Sign_Up : Fragment(R.layout.activity_sign_up){
         binding.signUpButton.setOnClickListener {
             var email: String = binding.emailSignUp!!.text.toString()
             var pass: String = binding.passSignUp!!.text.toString()
+            var full_name: String = binding.fullName!!.text.toString()
 
-            if(!email.isEmpty() && !pass.isEmpty()){
-                viewModel.register(email, pass)
+            if(!email.isEmpty() && !pass.isEmpty() && !full_name.isEmpty()){
+                viewModel.register(email, pass, full_name)
             }
+            findNavController().navigate(R.id.action_sign_Up2_to_signInFragment)
         }
 
     }

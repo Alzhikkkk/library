@@ -15,8 +15,8 @@ class AuthenViewModel(application: Application): AndroidViewModel(application){
         userData = repository.firebaseUserMutableLiveData
         loggedStatus = repository.userLoggedMutableLiveData
     }
-    fun register(email: String, pass: String){
-        repository.register(email, pass)
+    fun register(email: String, pass: String, full_name: String){
+        repository.register(email, pass, full_name)
     }
 
     fun signIn(email: String, pass: String){

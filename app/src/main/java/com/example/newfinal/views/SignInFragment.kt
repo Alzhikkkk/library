@@ -20,7 +20,7 @@ class SignInFragment: Fragment(R.layout.sign_in) {
 
     private lateinit var binding: SignInBinding
     private lateinit var viewModel: AuthenViewModel
-    private lateinit var navController: NavController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class SignInFragment: Fragment(R.layout.sign_in) {
         viewModel.userData.observe(this, Observer<FirebaseUser>(){
             newName ->
             if(newName != null){
-                navController.navigate(R.id.action_signInFragment_to_options_fragment2)
+                findNavController().navigate(R.id.action_signInFragment_to_options_fragment2)
             }
         })
     }
@@ -38,7 +38,7 @@ class SignInFragment: Fragment(R.layout.sign_in) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = SignInBinding.bind(view)
-        navController = Navigation.findNavController(view)
+
         Log.e("aaa", "smth")
         binding.signInButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
@@ -51,6 +51,7 @@ class SignInFragment: Fragment(R.layout.sign_in) {
             }
         })
         binding.signUpInsideIn.setOnClickListener {
+            Log.e("check", "clicked")
             findNavController().navigate(R.id.action_signInFragment_to_sign_Up2)
         }
     }

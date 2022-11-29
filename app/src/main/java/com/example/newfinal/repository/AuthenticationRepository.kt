@@ -5,10 +5,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.newfinal.model.Users
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 class AuthenticationRepository{
     var firebaseUserMutableLiveData: MutableLiveData<FirebaseUser>
@@ -27,11 +29,14 @@ class AuthenticationRepository{
         }
     }
 
-    public fun register(email: String, pass: String){
+    public fun register(email: String, pass: String, full_name: String){
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(OnCompleteListener <AuthResult>{
                 task ->
             if (task.isSuccessful){
+                val users: Users = Users(email, pass, full_name)
                 firebaseUserMutableLiveData.postValue(auth.currentUser)
+                FirebaseDatabase.getInstance().getReference("Users")
+                    .child(auth.currentUser!!.uid).setValue(users)
             }else{
                 Log.e("err", task.exception!!.message.toString() )
                 Toast.makeText(application, task.exception!!.message, Toast.LENGTH_SHORT).show()

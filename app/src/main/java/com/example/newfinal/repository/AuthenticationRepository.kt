@@ -34,7 +34,7 @@ class AuthenticationRepository{
                 task ->
             if (task.isSuccessful){
                 val users: Users = Users(email, pass, full_name)
-                firebaseUserMutableLiveData.postValue(auth.currentUser)
+                //firebaseUserMutableLiveData.postValue(auth.currentUser)
                 FirebaseDatabase.getInstance().getReference("Users")
                     .child(auth.currentUser!!.uid).setValue(users)
             }else{

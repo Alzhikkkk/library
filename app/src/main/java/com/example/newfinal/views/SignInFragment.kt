@@ -29,6 +29,7 @@ class SignInFragment: Fragment(R.layout.sign_in) {
         viewModel.userData.observe(this, Observer<FirebaseUser>(){
             newName ->
             if(newName != null){
+                Log.e("user", newName.toString())
                 findNavController().navigate(R.id.action_signInFragment_to_options_fragment2)
             }
         })

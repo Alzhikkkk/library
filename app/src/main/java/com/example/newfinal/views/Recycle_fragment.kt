@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.newfinal.ListAdapter
+import com.example.newfinal.ElementAdapter
 import com.example.newfinal.ListElement
 import com.example.newfinal.R
 import com.example.newfinal.databinding.CardsElementBinding
@@ -59,7 +59,8 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
     fun init(): Unit {
         elements = ArrayList<ListElement>();
 
-        val listAdapter = ListAdapter(elements)
+        val listAdapter = ElementAdapter()
+        listAdapter.submitList(elements)
         val recyclerView = binding.listRecyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())

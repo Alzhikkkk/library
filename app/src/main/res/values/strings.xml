@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">newFinal</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="book_name">FairyTail about someone</string>
+    <string name="publisher">Some Someone</string>
+    <string name="open_book_wishlist" />
+</resources>

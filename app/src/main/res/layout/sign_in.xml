@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/photo_5411491607519282575_y"
+    android:background="@drawable/img"
     tools:context="com.example.newfinal.views.SignInFragment">
 
 
@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome back,\nmy friend"
-        android:textColor="@android:color/black"
+        android:textColor="@color/purple_500"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,23 +27,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
         android:gravity="bottom"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="-16dp">
 
 
         <EditText
+            android:id="@+id/email_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/edit_round"
             android:hint="Email or phone number"
-            android:id="@+id/email_phone"
             android:inputType="text"
             android:padding="15dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/white"
             android:textStyle="bold" />
 
         <EditText
@@ -53,10 +55,11 @@
             android:layout_margin="10dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_round"
             android:hint="password"
             android:inputType="textPassword"
             android:padding="15dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/white"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -74,9 +77,9 @@
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="163dp"
                 android:layout_marginBottom="10dp"
-                android:background="@android:color/white"
+                android:background="@drawable/edit_round"
                 android:text="Sign In"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -88,16 +91,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="17dp"
                 android:padding="15dp"
                 android:text="Sign Up"
-                android:textColor="@color/black"
+                android:textColor="@color/purple_500"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/forgot_pass"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -105,7 +109,7 @@
                 android:layout_marginStart="20dp"
                 android:padding="15dp"
                 android:text="@string/forgot_password"
-                android:textColor="@color/black"
+                android:textColor="@color/purple_500"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -115,4 +119,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

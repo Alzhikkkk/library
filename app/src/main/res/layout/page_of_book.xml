@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.newfinal.PageFragment">
 
-    <ImageView
-        android:id="@+id/nextPage"
-        android:layout_width="52dp"
+    <Button
+        android:id="@+id/save"
+        android:layout_width="100dp"
         android:layout_height="53dp"
-        android:src="@drawable/ic_baseline_arrow_forward_24"
+        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 

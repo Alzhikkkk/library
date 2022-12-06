@@ -1,5 +1,7 @@
 package com.example.newfinal
 
+
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,20 +14,21 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 
-class ElementAdapter: ListAdapter<ListElement, ElementAdapter.ItemViewHolder>(ListElementDiffCallback()){
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class ElementAdapter( private val onClickedName: (ListElement) -> Unit) : ListAdapter<ListElement, ElementAdapter.ItemViewHolder>(ListElementDiffCallback()){
+    inner class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view.rootView) {
+
         val iconImage: ImageView = view.findViewById(R.id.iconImageView)
         val name: TextView = view.findViewById(R.id.nameTextView)
         val city: TextView = view.findViewById(R.id.authorTextview)
-        val status: TextView = view.findViewById(R.id.statusTextView)
 
         fun bindData(item: ListElement): Unit{
             bindImage(iconImage, item.color)
             name.setText(item.name)
             city.setText(item.author)
-            status.setText(item.status)
+            view.rootView.setOnClickListener { onClickedName(item) }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -40,6 +43,8 @@ class ElementAdapter: ListAdapter<ListElement, ElementAdapter.ItemViewHolder>(Li
     }
 
 }
+
+
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {

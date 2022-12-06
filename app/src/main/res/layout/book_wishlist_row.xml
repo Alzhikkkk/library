@@ -21,12 +21,15 @@
     android:id="@+id/wishlist"
     android:layout_height="wrap_content">
 
+
+
     <TextView
         android:id="@+id/book_name"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
+        android:text="@string/book_name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,6 +38,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:text="@string/book_name"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toEndOf="@id/book_name"
         app:layout_constraintTop_toTopOf="parent" />

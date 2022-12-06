@@ -1,5 +1,7 @@
 package com.example.newfinal.views
 
+
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,16 +15,21 @@ import com.example.newfinal.ListElement
 import com.example.newfinal.R
 import com.example.newfinal.databinding.CardsElementBinding
 import com.example.newfinal.databinding.ListElementBinding
+import com.example.newfinal.model.BookSearchResultData
 import com.example.newfinal.repository.Repository
-import com.example.newfinal.utils.Constant
 import com.example.newfinal.viewmodel.MainViewModel
 import com.example.newfinal.viewmodel.ViewModelFactory
+import com.google.gson.Gson
 
 class Recycle_fragment : Fragment(R.layout.cards_element) {
 
     lateinit var elements: ArrayList<ListElement>
     private lateinit var binding: CardsElementBinding
+    private lateinit var databind: ListElementBinding
     private lateinit var viewModel: MainViewModel
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = CardsElementBinding.bind(view)
@@ -32,19 +39,33 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
         init()
 
         binding.poka4to.setOnClickListener {
-            findNavController().navigate(R.id.action_recycle_fragment_to_pageFragment)
+            findNavController().navigate(R.id.action_recycle_fragment_to_bookWishlistRecyclerView)
         }
 
         viewModel.getBooks("flowers", "partial", "")
+        val data = arrayListOf<BookSearchResultData>()
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
             response.items.forEach {
                 val el: ListElement =
-                    ListElement(it.volumeInfo!!.imageLinks!!.smallThumbnail.toString(),
+                    ListElement(it.id.toString(), it.volumeInfo!!.publisher.toString(), it.volumeInfo!!.imageLinks!!.smallThumbnail.toString(),
                         it.volumeInfo!!.title.toString(),
                         it.volumeInfo!!.authors[0].toString(),
-                        "Favorite")
+                        it.volumeInfo!!.description.toString()
+                        )
                 elements.add(el);
+                data.add(
+                    BookSearchResultData(
+                        it.id.toString(),
+                        it.volumeInfo!!.imageLinks!!.smallThumbnail.toString(),
+                        it.volumeInfo!!.title.toString(),
+                        it.volumeInfo!!.publisher.toString(),
+                        it.volumeInfo!!.description.toString(),
+                        it.volumeInfo!!.previewLink.toString(),
+                        it.volumeInfo!!.imageLinks!!.thumbnail.toString()
+                    )
+                )
                 binding.listRecyclerView.adapter?.notifyDataSetChanged()
+
             }
         })
     }
@@ -58,8 +79,8 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
 
     fun init(): Unit {
         elements = ArrayList<ListElement>();
-
-        val listAdapter = ElementAdapter()
+        Log.e("err3", elements.toString())
+        val listAdapter = ElementAdapter(::onClickedName)
         listAdapter.submitList(elements)
         val recyclerView = binding.listRecyclerView
         recyclerView.setHasFixedSize(true)
@@ -67,5 +88,10 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
         recyclerView.adapter = listAdapter
     }
 
+    fun onClickedName(item: ListElement){
+        val bundle = Bundle()
+        bundle.putString("item", Gson().toJson(item))
+        findNavController().navigate(R.id.action_recycle_fragment_to_pageFragment, bundle)
+    }
 
 }

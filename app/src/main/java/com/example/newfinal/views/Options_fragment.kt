@@ -35,6 +35,7 @@ class Options_fragment : Fragment(R.layout.options_genre)  {
 
         binding.signOut.setOnClickListener{
             viewModel.signOut()
+            findNavController().navigate(R.id.action_options_fragment2_to_signInFragment)
         }
 
     }

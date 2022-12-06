@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_options_fragment2_to_recycle_fragment"
             app:destination="@id/recycle_fragment" />
+        <action
+            android:id="@+id/action_options_fragment2_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/personal_fragment"

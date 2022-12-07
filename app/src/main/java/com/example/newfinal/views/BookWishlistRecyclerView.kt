@@ -30,11 +30,11 @@ class BookWishlistRecyclerView : Fragment(R.layout.activity_book_wishlist_recycl
     private lateinit var mBookDataViewModel: BookDataViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = ActivityBookWishlistRecyclerViewBinding.bind(view)
+        binding = ActivityBookWishlistRecyclerViewBinding.bind(view )
         mBookDataViewModel = ViewModelProvider(this).get(BookDataViewModel::class.java)
         mBookDataViewModel.readAllData.observe(viewLifecycleOwner, Observer{ book ->
+            Log.e("err", book.toString())
             for (item in book){
-                Log.d("elements", item.toString())
                 elements.add(item);
             }
             binding.bookWishListRecyclerView.adapter?.notifyDataSetChanged()

@@ -45,6 +45,7 @@ class PageFragments : Fragment(R.layout.page_of_book) {
         )
 
         binding.save?.setOnClickListener{
+            Log.e("errBook", book.isFavourite.toString())
             if (book.isFavourite == true) {
                 mBookDataViewModel.deleteBook(book)
                 book.isFavourite = false
@@ -68,10 +69,11 @@ class PageFragments : Fragment(R.layout.page_of_book) {
         if(jsonStr != null){
             item = Gson().fromJson(jsonStr, ListElement::class.java)
             item?.let {
-                com.example.newfinal.bindImage(binding.imageView, it.color)
+                bindImage(binding.imageView, it.color)
                 binding.textView2.setText(it.name)
                 binding.textView4.setText(it.author)
                 binding.textView3.setText(it.desc)
+                id = it.id
                 bookThumbnail = it.color
                 bookName = it.name
                 bookPublisher = it.publisher

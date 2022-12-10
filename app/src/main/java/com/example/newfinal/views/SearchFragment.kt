@@ -1,5 +1,5 @@
-package com.example.newfinal.views
 
+package com.example.newfinal.views
 
 import android.os.Bundle
 import android.util.Log
@@ -14,33 +14,31 @@ import com.example.newfinal.ListElement
 import com.example.newfinal.R
 import com.example.newfinal.databinding.CardsElementBinding
 import com.example.newfinal.databinding.ListElementBinding
+import com.example.newfinal.databinding.SearchBinding
 import com.example.newfinal.model.BookSearchResultData
 import com.example.newfinal.repository.Repository
 import com.example.newfinal.viewmodel.MainViewModel
 import com.example.newfinal.viewmodel.ViewModelFactory
 import com.google.gson.Gson
 
-class Recycle_fragment : Fragment(R.layout.cards_element) {
+class SearchFragment : Fragment(R.layout.search) {
 
     lateinit var elements: ArrayList<ListElement>
-    private lateinit var binding: CardsElementBinding
+    private lateinit var binding: SearchBinding
     private lateinit var databind: ListElementBinding
     private lateinit var viewModel: MainViewModel
 
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = CardsElementBinding.bind(view)
+        binding = SearchBinding.bind(view)
         val repository = Repository()
         val viewModelFactory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         init()
 
-        binding.poka4to.setOnClickListener {
-            findNavController().navigate(R.id.action_recycle_fragment_to_bookWishlistRecyclerView)
-        }
-
-        viewModel.getBooks("flowers", "ebooks", "")
+        viewModel.getBooks("flowers", "partial", "")
         val data = arrayListOf<BookSearchResultData>()
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
             response.items.forEach {
@@ -49,7 +47,7 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
                         it.volumeInfo!!.title.toString(),
                         it.volumeInfo!!.authors[0].toString(),
                         it.volumeInfo!!.description.toString()
-                        )
+                    )
                 elements.add(el);
                 data.add(
                     BookSearchResultData(
@@ -62,7 +60,7 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
                         it.volumeInfo!!.imageLinks!!.thumbnail.toString()
                     )
                 )
-                binding.listRecyclerView.adapter?.notifyDataSetChanged()
+                binding.recyclerView.adapter?.notifyDataSetChanged()
 
             }
         })
@@ -80,7 +78,7 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
         Log.e("err3", elements.toString())
         val listAdapter = ElementAdapter(::onClickedName)
         listAdapter.submitList(elements)
-        val recyclerView = binding.listRecyclerView
+        val recyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.adapter = listAdapter

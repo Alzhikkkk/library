@@ -10,15 +10,10 @@ import com.example.newfinal.repository.BookRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class BookDataViewModel(application: Application): AndroidViewModel(application) {
-    val readAllData: LiveData<List<BookSearchResultData>>
-    private val repository: BookRepository
-
-    init {
-        val bookDao = BookDatabase.getDatabase(application).bookDao()
-        repository = BookRepository(bookDao)
-        readAllData = repository.readAllData
-    }
+class BookDataViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: BookRepository =
+        BookRepository(BookDatabase.getDatabase(application).bookDao())
+    val readAllData = repository.readAllData
 
     fun addBook(book: BookSearchResultData) {
         viewModelScope.launch(Dispatchers.IO) {

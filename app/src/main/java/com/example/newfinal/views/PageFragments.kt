@@ -15,6 +15,7 @@ import com.example.newfinal.R
 import com.example.newfinal.databinding.PageOfBookBinding
 import com.example.newfinal.model.BookSearchResultData
 import com.example.newfinal.viewmodel.BookDataViewModel
+import com.example.newfinal.viewmodel.BookModelFactory
 import com.google.gson.Gson
 
 class PageFragments : Fragment(R.layout.page_of_book) {
@@ -31,7 +32,9 @@ class PageFragments : Fragment(R.layout.page_of_book) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = PageOfBookBinding.bind(view)
-        mBookDataViewModel = ViewModelProvider(this).get(BookDataViewModel::class.java)
+        val factory = BookModelFactory(application = requireActivity().application)
+
+        mBookDataViewModel = ViewModelProvider(this, factory).get(BookDataViewModel::class.java)
         setData()
         val book = BookSearchResultData(
             id,

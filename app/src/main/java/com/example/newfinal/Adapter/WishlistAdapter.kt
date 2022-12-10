@@ -13,7 +13,7 @@ import com.example.newfinal.bindImage
 import com.example.newfinal.model.BookSearchResultData
 
 
-class WishlistAdapter: ListAdapter<BookSearchResultData, WishlistAdapter.MyViewHolder>(BookSearchResultDataDiffCallback()) {
+class WishlistAdapter(private val listener: DeleteBookInterface): ListAdapter<BookSearchResultData, WishlistAdapter.MyViewHolder>(BookSearchResultDataDiffCallback()) {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView.rootView) {
         val book_name: TextView = itemView.findViewById(R.id.book_name)
@@ -34,17 +34,22 @@ class WishlistAdapter: ListAdapter<BookSearchResultData, WishlistAdapter.MyViewH
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bindData(getItem(position))
+        holder.itemView.findViewById<ImageView>(R.id.delete_image_view).setOnClickListener{
+            listener.onClick(getItem(position))
+        }
     }
 
     interface DeleteBookInterface {
         fun onClick(book: BookSearchResultData)
     }
 
+
+
 }
 
 class BookSearchResultDataDiffCallback: DiffUtil.ItemCallback<BookSearchResultData>(){
     override fun areItemsTheSame(oldItem: BookSearchResultData, newItem: BookSearchResultData): Boolean {
-        return oldItem.title == newItem.title
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(

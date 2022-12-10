@@ -31,8 +31,38 @@
         android:gravity="bottom"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-16dp">
+        tools:layout_editor_absoluteX="-36dp">
 
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="4dp"-->
+        <!--            android:hint="@string/shr_hint_username"-->
+        <!--            app:hintTextColor="@color/white"-->
+        <!--            android:textColorHint="@color/white"-->
+        <!--            android:background="@drawable/edit_round">-->
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/email_phone"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@drawable/edit_round" />-->
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="4dp"-->
+        <!--            android:hint="@string/shr_hint_password"-->
+        <!--            app:hintTextColor="@color/white"-->
+        <!--            android:textColorHint="@color/white">-->
+
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/password"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@drawable/edit_round" />-->
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <EditText
             android:id="@+id/email_phone"
@@ -119,3 +149,4 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

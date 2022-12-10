@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_options_fragment2_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_options_fragment2_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/personal_fragment"
@@ -78,4 +81,9 @@
         android:name="com.example.newfinal.views.BookWishlistRecyclerView"
         android:label="activity_book_wishlist_recycler_view"
         tools:layout="@layout/activity_book_wishlist_recycler_view" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.newfinal.views.SearchFragment"
+        android:label="search"
+        tools:layout="@layout/search" />
 </navigation>

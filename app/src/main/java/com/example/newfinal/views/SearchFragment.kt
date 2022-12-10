@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newfinal.ElementAdapter
 import com.example.newfinal.ListElement
 import com.example.newfinal.R
-import com.example.newfinal.databinding.CardsElementBinding
 import com.example.newfinal.databinding.ListElementBinding
 import com.example.newfinal.databinding.SearchBinding
+
 import com.example.newfinal.model.BookSearchResultData
 import com.example.newfinal.repository.Repository
 import com.example.newfinal.viewmodel.MainViewModel
@@ -38,7 +38,7 @@ class SearchFragment : Fragment(R.layout.search) {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         init()
 
-        viewModel.getBooks("flowers", "partial", "")
+        viewModel.getBooks("Harry", "ebooks", "")
         val data = arrayListOf<BookSearchResultData>()
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
             response.items.forEach {
@@ -64,6 +64,10 @@ class SearchFragment : Fragment(R.layout.search) {
 
             }
         })
+
+        binding.profil.setOnClickListener{
+            this.onClickSearch(binding.searchView.query.toString())
+        }
     }
 
     fun next() {
@@ -87,7 +91,14 @@ class SearchFragment : Fragment(R.layout.search) {
     fun onClickedName(item: ListElement){
         val bundle = Bundle()
         bundle.putString("item", Gson().toJson(item))
-        findNavController().navigate(R.id.action_recycle_fragment_to_pageFragment, bundle)
+        findNavController().navigate(R.id.action_searchFragment_to_pageFragment, bundle)
+    }
+
+    fun onClickSearch(search: String){
+        val bundle1 = Bundle()
+        bundle1.putString("search", search)
+        findNavController().navigate(R.id.action_searchFragment_to_recycle_fragment, bundle1)
+
     }
 
 }

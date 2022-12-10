@@ -26,6 +26,7 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
     private lateinit var binding: CardsElementBinding
     private lateinit var databind: ListElementBinding
     private lateinit var viewModel: MainViewModel
+    private var searchText = ""
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +41,9 @@ class Recycle_fragment : Fragment(R.layout.cards_element) {
             findNavController().navigate(R.id.action_recycle_fragment_to_bookWishlistRecyclerView)
         }
 
-        viewModel.getBooks("flowers", "ebooks", "")
+        searchText = arguments?.getString("search").toString()
+        Log.e("searchErr", searchText)
+        viewModel.getBooks(searchText, "ebooks", "")
         val data = arrayListOf<BookSearchResultData>()
         viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
             response.items.forEach {

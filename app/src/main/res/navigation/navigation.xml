@@ -2,7 +2,9 @@
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/signInFragment">
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.newfinal.views.SignInFragment"
@@ -44,12 +46,19 @@
         <action
             android:id="@+id/action_options_fragment2_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_options_fragment2_to_bookWishlistRecyclerView"
+            app:destination="@id/bookWishlistRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/personal_fragment"
         android:name="com.example.newfinal.views.Personal_fragment"
         android:label="main_book"
-        tools:layout="@layout/main_book" />
+        tools:layout="@layout/main_book" >
+        <action
+            android:id="@+id/action_personal_fragment_to_options_fragment2"
+            app:destination="@id/options_fragment2" />
+    </fragment>
     <fragment
         android:id="@+id/books_Fragment"
         android:name="com.example.newfinal.Books_Fragment"

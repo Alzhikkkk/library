@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.newfinal.R
 import com.example.newfinal.databinding.MainBookBinding
 import com.example.newfinal.model.Users
@@ -25,7 +26,9 @@ class Personal_fragment: Fragment(R.layout.main_book) {
         val bb = binding.profEmail
         getItem(tt, bb)
 
-
+        binding.saveInfo.setOnClickListener {
+            findNavController().navigate(R.id.action_personal_fragment_to_options_fragment2)
+        }
         binding.editInfo.setOnClickListener{
             val em = bb.text.toString()
             val full = tt.text.toString()

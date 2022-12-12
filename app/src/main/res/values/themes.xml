@@ -16,6 +16,20 @@
 
     </style>
 
+    <style name="Theme.StyleRedBlue" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/red_500</item>
+        <item name="colorPrimaryVariant">@color/red_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue_200</item>
+        <item name="colorSecondaryVariant">@color/blue_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
 
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>
@@ -31,5 +45,12 @@
         <item name="android:textColorHint">@color/white</item>
         <item name="android:textSize">22dp</item>
         <item name="android:background">@null</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/medium</item>
+        <item name="colorPrimaryDark">@color/stateM</item>
+        <item name="colorAccent">@color/purple_200</item>
     </style>
 </resources>
